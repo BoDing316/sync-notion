@@ -152,6 +152,9 @@ def sync_trending(notion_token, database_id, git_token=None):
         log_level=logging.ERROR
     )
 
+    if not database_id:
+        raise ValueError("❌ 错误：`database_id` 不能为空，请确认你是否正确传入了 Notion 的数据库 ID。")
+
     languages = list(map(lambda x: x.strip(), CONFIG.get("trending.language", "Languages").split(",")))
     for language in languages:
         if not language:
