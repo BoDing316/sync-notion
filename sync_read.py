@@ -608,6 +608,7 @@ def sync_read(
     books = wreader.get_notebooklist()
     for _book in books:
         sort = _book["sort"]
+        print(len(books))
         if sort <= latest_sort:  # 笔记无更新，跳过
             continue
 
